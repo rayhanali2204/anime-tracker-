@@ -1,5 +1,5 @@
 # anime-tracker-
-Full-stack anime tracking application with a Python ETL pipeline, PostgreSQL, Flask, and external API integration.
+Full-stack Flask anime tracker with an automated Python ETL pipeline, PostgreSQL, REST API ingestion, data validation and scheduled workflows.
  # Anime Tracker
 
 A full-stack anime tracking web application built with Flask and PostgreSQL, featuring an automated ETL pipeline that ingests and processes anime data from the Tenrai API.
