@@ -22,6 +22,10 @@ def run_pipeline():
             transformed_anime
         )
 
+        mal_ids = [anime["mal_id"] for anime in valid_anime]
+
+        
+
         inserted, updated = load_anime(valid_anime)
 
         end_time = time.perf_counter()
@@ -72,8 +76,7 @@ def run_pipeline():
             db.session.add(failed_run)
             db.session.commit()
 
-        print("ETL Pipeline Failed")
-        print(f"Error: {error}")
+        
 
 
 

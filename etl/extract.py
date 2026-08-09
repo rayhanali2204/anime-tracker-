@@ -33,6 +33,8 @@ def extract_top_anime(limit=100):
 
         data = response.json()
 
+        
+
         if not data.get("data"):
             break
 
@@ -40,8 +42,6 @@ def extract_top_anime(limit=100):
 
         page += 1
 
-        anime_data.extend(data["data"])
-
-        page += 1
+       
 
     return anime_data[:limit]
