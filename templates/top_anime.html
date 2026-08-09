@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block page_title %}Top Anime{% endblock %}
+
+{% block content %}
+
+<h1>Top 100 Anime</h1>
+
+{% if last_run %}
+    <p>
+        Last updated:
+        {{ last_run.finished_at.strftime("%d %b %Y %H:%M") }}
+    </p>
+{% endif %}
+
+<div class="top-anime-container">
+
+    {% for anime in top_anime %}
+
+        <div class="anime-card">
+
+            <img
+                src="{{ anime.image_url }}"
+                alt="{{ anime.title }}"
+            >
+
+            <h3>#{{ anime.rank }} {{ anime.title }}</h3>
+
+            {% if anime.title_english %}
+                <p>{{ anime.title_english }}</p>
+            {% endif %}
+
+            <p>Score: {{ anime.score }}</p>
+
+            <p>
+                {{ anime.type }}
+                •
+                {{ anime.episodes or "?" }} episodes
+            </p>
+
+            {% if anime.studio %}
+                <p>{{ anime.studio }}</p>
+            {% endif %}
+
+        </div>
+
+    {% endfor %}
+
+</div>
+
+{% endblock %}

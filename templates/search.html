@@ -1,0 +1,110 @@
+{% extends "base.html" %}
+
+{% block page_title %}
+    Search
+{% endblock %}
+
+{% block content %}
+
+    <!-- Main search form -->
+    <form action="{{ url_for('search') }}" method="POST">
+
+        <input
+            type="hidden"
+            name="csrf_token"
+            value="{{ csrf_token() }}"
+        >
+
+        <input
+            type="text"
+            name="anime_name"
+            placeholder="Search anime"
+            required
+        >
+
+        <button type="submit">
+            Search
+        </button>
+
+    </form>
+
+
+    {% if error %}
+        <p>{{ error }}</p>
+    {% endif %}
+
+
+    {% if results %}
+
+        {% for anime in results %}
+
+            <div class="anime-search">
+
+                <img
+                    src="{{ anime.images.jpg.image_url }}"
+                    alt="{{ anime.title }} cover"
+                >
+
+                <h3>{{ anime.title }}</h3>
+
+                <!-- Separate Add form for this result -->
+                <form
+                    action="{{ url_for('add_anime') }}"
+                    method="POST"
+                >
+
+                    <input
+                        type="hidden"
+                        name="csrf_token"
+                        value="{{ csrf_token() }}"
+                    >
+
+                    <input
+                        type="hidden"
+                        name="airing_status"
+                        value="{{ anime.status or '' }}"
+                    >
+
+                    <input
+                        type="hidden"
+                        name="content_rating"
+                        value="{{ anime.rating or '' }}"
+                    >
+
+                    <input
+                        type="hidden"
+                        name="total_episodes"
+                        value="{{ anime.episodes or 0 }}"
+                    >
+
+                    <input
+                        type="hidden"
+                        name="name"
+                        value="{{ anime.title }}"
+                    >
+
+                    <input
+                        type="hidden"
+                        name="image"
+                        value="{{ anime.images.jpg.image_url }}"
+                    >
+
+                    <input
+                        type="hidden"
+                        name="mal_id"
+                        value="{{ anime.mal_id }}"
+                    >
+
+                    <button type="submit">
+                        Add
+                    </button>
+
+                </form>
+
+            </div>
+
+        {% endfor %}
+
+    {% endif %}
+
+{% endblock %}

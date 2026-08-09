@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block page_title %}Home{% endblock %}
+
+{% block content %}
+
+<div style="max-width: 1000px; margin: 0 auto;">
+    <h1 style="font-family: 'Oswald', sans-serif; line-height: 1.15; margin-bottom: 0.75rem;">
+        Track your anime<br>
+        <span style="color: var(--accent);">Stay up to date</span>
+    </h1>
+</div>
+
+<div class="carousel-wrapper">
+
+    <button class="scroll-btn left" onclick="moveLeft()">◀</button>
+
+    <div class="featured-anime" id="anime-container">
+        <img src="{{ url_for('static', filename='images/jjk.jpg') }}"  alt="Jujitsu Kaisen Cover">
+        <img src="{{ url_for('static', filename='images/aot.jpg') }}" alt="Attack On Titan Cover">
+        <img src="{{ url_for('static', filename='images/fmab.jpg') }}" alt="Full Metal Alchemist Brotherhood Cover">
+        <img src="{{ url_for('static', filename='images/dn.jpg') }}" alt="Death Note Cover">
+        <img src="{{ url_for('static', filename='images/naruto.jpg') }}" alt="Naruto Cover">
+        <img src="{{ url_for('static', filename='images/bleach.jpg') }}" alt="Bleach Cover">
+        <img src="{{ url_for('static', filename='images/op.jpg') }}" alt="One Piece Cover">
+    </div>
+
+    <button class="scroll-btn right" onclick="moveRight()">▶</button>
+
+</div>
+
+
+{% endblock %}
