@@ -12,6 +12,18 @@ https://anime-tracker-9pga.onrender.com
 
 > The application is hosted on Render's free web tier, so the first request may take a short time while the service wakes up.
 
+## Screenshots
+
+### Top Anime
+![Top Anime page showing data populated by the ETL pipeline](static/readme/top-anime.png)
+
+### Personal Anime Tracker
+![Personal anime tracking dashboard](static/readme/tracker.png)
+
+### Home
+![Anime Tracker home page](static/readme/home.png)
+
+
 ## Features
 
 ### Anime Tracking

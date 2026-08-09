@@ -114,8 +114,7 @@ class PipelineRun(db.Model):
     error_message = db.Column(db.Text)
 
 
-with app.app_context():
-    db.create_all()
+
 
 
 
